@@ -5,7 +5,7 @@ import slinky.core.annotations.react
 
 import scala.scalajs.js
 import scala.scalajs.js.{|, UndefOr}
-import _root_.com.lambdaminute.slinkywrappers.reactrouter.To
+import com.lambdaminute.slinkywrappers.reactrouter.To
 
 @react object NavLink extends ExternalComponent {
   case class Props(

@@ -29,7 +29,8 @@ object Hello extends IOApp {
       conf <- AppConfig.read()
       blockingEc = ExecutionContext.fromExecutorService(Executors.newFixedThreadPool(4))
       staticEndpoints = StaticEndpoints[F](conf.assets, blockingEc)
-      httpApp = staticEndpoints.endpoints().orNotFound
+      restEndpoints = RestEndpoints[F]()
+      httpApp = (staticEndpoints.endpoints() <+> restEndpoints.endpoints()).orNotFound
       exitCode <- BlazeServerBuilder[F]
         .bindHttp(conf.http.port, conf.http.host)
         .withHttpApp(CORS(httpApp))

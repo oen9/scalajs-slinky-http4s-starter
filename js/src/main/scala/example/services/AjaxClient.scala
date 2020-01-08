@@ -8,7 +8,8 @@ import scala.util.Failure
 
 object AjaxClient {
   val JSON_TYPE = Map("Content-Type" -> "application/json")
-  val baseUrl = "" // http://localhost:8080 for dev
+  val baseUrl = ""
+  // val baseUrl = "http://localhost:8080" // for dev
 
   import scala.concurrent.ExecutionContext.Implicits.global
 
